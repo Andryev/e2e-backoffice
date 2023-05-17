@@ -3,7 +3,7 @@
 *******************/
 
 .page-breadcrumb {
-  background: $white;
+  background: #F7FAFD;
 }
 
 .main-container {
@@ -17,13 +17,22 @@
   right: 0;
 }
 
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: #00acc1 !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: #00abc150;
+}
+
 .mat-drawer-container {
   background: $bodycolor;
 }
 
 html .page-wrapper {
   height: calc(100vh - 64px);
-  overflow: hidden;
+  background-color: #F7FAFD;
+  overflow: auto;
   .page-content {
     padding: 15px;
     
