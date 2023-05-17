@@ -16,7 +16,16 @@
   left: 0;
   right: 0;
 }
+.mat-step-header.cdk-keyboard-focused, .mat-step-header.programa-focused,
+.mat-step-header:hover:not([arial-disabled]), 
+.mat-step-header:hover[arial-disabled=false]{
+  background-color: #00abc13c;
+}
 
+.mat-step-header.cdk-keyboard-focused, .mat-step-header.programa-focused,
+.mat-step-header:focus{
+  background-color: #00abc13c;
+}
 .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
   background-color: #00acc1 !important;
 }
