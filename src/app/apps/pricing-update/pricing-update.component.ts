@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { FormControl, Validators } from '@angular/forms';
 import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import {Food} from '../../forms/select/select.component';
 
 @Component({
   selector: 'app-pricing-update',
@@ -17,11 +18,17 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
   {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},]
 })
 export class PricingUpdateComponent {
-  
+
+  products: Food[] = [
+    { value: 'steak-0', viewValue: 'Crédito 1' },
+    { value: 'pizza-1', viewValue: 'Crédito 2' },
+    { value: 'tacos-2', viewValue: 'Crédito 3' },
+  ];
+  fileInfo = '  Nenhum ficheiro selecionado.';
   options: FormGroup;
   firstFormGroup: FormGroup = Object.create(null);
   secondFormGroup: FormGroup = Object.create(null);
-  
+
 
   constructor(formBuilder: FormBuilder,
     @Inject(MAT_DATE_LOCALE) private _locale: string,
@@ -45,17 +52,23 @@ export class PricingUpdateComponent {
   get isChecked(){
     return this.options.controls['isChecked'].value;
   }
-  // For form validator
-  email = new FormControl('', [Validators.required, Validators.email]);
 
-  // Sufix and prefix
-  hide = true;
+  onFileSelect(input: HTMLInputElement): void {
+    function formatBytes(bytes: number): string {
+      const UNITS = ['Bytes', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+      const factor = 1024;
+      let index = 0;
 
-  getErrorMessage(): any {
-    return this.email.hasError('required')
-      ? 'You must enter a value'
-      : this.email.hasError('email')
-      ? 'Not a valid email'
-      : '';
+      while (bytes >= factor) {
+        bytes /= factor;
+        index++;
+      }
+
+      return `${parseFloat(bytes.toFixed(2))} ${UNITS[index]}`;
+    }
+
+    // @ts-ignore
+    const file = input.files[0];
+    this.fileInfo = `${file.name} (${formatBytes(file.size)})`;
   }
 }

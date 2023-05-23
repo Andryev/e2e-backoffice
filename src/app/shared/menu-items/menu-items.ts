@@ -55,7 +55,7 @@ const MENUITEMS = [
     icon: 'apps',
     badge: [{ type: 'warning', value: 'new' }],
     children: [
-      { state: 'pricing-update', name: 'Atualização de Pricing', type: 'link' },
+      { state: 'pricing-update', name: 'Pricing', type: 'link' },
       // { state: 'calendar', name: 'Calendar', type: 'link' },
       // { state: 'mailbox', name: 'Mailbox', type: 'link' },
       // { state: 'messages', name: 'Mail', type: 'link' },

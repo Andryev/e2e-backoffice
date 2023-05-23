@@ -54,6 +54,7 @@ import { TaskDialogComponent } from './taskboard/task-dialog.component';
 import { OkTaskComponent } from './taskboard/ok-task/ok-task.component';
 import { DeleteTaskComponent } from './taskboard/delete-task/delete-task.component';
 import {PricingUpdateComponent} from './pricing-update/pricing-update.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   imports: [
@@ -107,7 +108,7 @@ import {PricingUpdateComponent} from './pricing-update/pricing-update.component'
     CourseDetailComponent,
     TaskDialogComponent,
     OkTaskComponent,
-    DeleteTaskComponent,
+    DeleteTaskComponent
   ],
   providers: [NoteService, CourseService, TodoService, DatePipe],
   entryComponents: [
