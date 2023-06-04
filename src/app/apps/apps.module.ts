@@ -55,6 +55,11 @@ import { OkTaskComponent } from './taskboard/ok-task/ok-task.component';
 import { DeleteTaskComponent } from './taskboard/delete-task/delete-task.component';
 import {PricingUpdateComponent} from './pricing-update/pricing-update.component';
 import {MatDividerModule} from '@angular/material/divider';
+import { PricingGeneralComponent } from './pricing-update/pricing-common/pricing-general/pricing-general.component';
+import { PricingParameterizationComponent } from './pricing-update/pricing-common/pricing-parameterization/pricing-parameterization.component';
+import { PricingOthersComponent } from './pricing-update/pricing-common/pricing-others/pricing-others.component';
+import { PricingCommissionsAndTaxesComponent } from './pricing-update/pricing-common/pricing-commissions-and-taxes/pricing-commissions-and-taxes.component';
+import { PricingDeadlinesComponent } from './pricing-update/pricing-common/pricing-deadlines/pricing-deadlines.component';
 
 @NgModule({
   imports: [
@@ -108,11 +113,17 @@ import {MatDividerModule} from '@angular/material/divider';
     CourseDetailComponent,
     TaskDialogComponent,
     OkTaskComponent,
-    DeleteTaskComponent
+    DeleteTaskComponent,
+    PricingGeneralComponent,
+    PricingParameterizationComponent,
+    PricingOthersComponent,
+    PricingCommissionsAndTaxesComponent,
+    PricingDeadlinesComponent
   ],
   providers: [NoteService, CourseService, TodoService, DatePipe],
   entryComponents: [
     CalendarDialogComponent,
+    PricingGeneralComponent,
     DialogDataExampleDialogComponent,
     DialogContentComponent,
     TicketDialogContentComponent,

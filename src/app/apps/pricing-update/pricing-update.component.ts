@@ -1,39 +1,60 @@
-import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { FormControl, Validators } from '@angular/forms';
-import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import {Component, Inject} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_FORMATS} from '@angular/material-moment-adapter';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import {Food} from '../../forms/select/select.component';
+import {MatTableDataSource} from '@angular/material/table';
+import {SelectionModel} from '@angular/cdk/collections';
+
+
+
+
+
 
 @Component({
   selector: 'app-pricing-update',
   templateUrl: './pricing-update.component.html',
   styleUrls: ['./pricing-update.component.scss'],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'pt-pt'},
-  {
-    provide: DateAdapter,
-    useClass: MomentDateAdapter,
-    deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
-  },
-  {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},]
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+    },
+    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS}]
 })
 export class PricingUpdateComponent {
 
-  products: Food[] = [
-    { value: 'steak-0', viewValue: 'Crédito 1' },
-    { value: 'pizza-1', viewValue: 'Crédito 2' },
-    { value: 'tacos-2', viewValue: 'Crédito 3' },
+
+
+
+  prazoList: number[] = [
+    18,
+    24,
+    30,
+    36,
+    42,
+    48,
+    54,
+    60,
+    64,
+    70
   ];
   fileInfo = '  Nenhum ficheiro selecionado.';
+
+
+
+  valid: any = {};
   options: FormGroup;
   firstFormGroup: FormGroup = Object.create(null);
   secondFormGroup: FormGroup = Object.create(null);
 
 
   constructor(formBuilder: FormBuilder,
-    @Inject(MAT_DATE_LOCALE) private _locale: string,
-
-    private _adapter: DateAdapter<any>,) {
+              // tslint:disable-next-line:variable-name
+              @Inject(MAT_DATE_LOCALE) private _locale: string,
+              // tslint:disable-next-line:variable-name
+              private _adapter: DateAdapter<any>) {
     this.options = formBuilder.group({
       hideRequired: false,
       isChecked: false,
@@ -49,8 +70,8 @@ export class PricingUpdateComponent {
     this._adapter.setLocale(this._locale);
   }
 
-  get isChecked(){
-    return this.options.controls['isChecked'].value;
+  get isChecked(): any {
+    return this.options.controls.isChecked.value;
   }
 
   onFileSelect(input: HTMLInputElement): void {
@@ -71,4 +92,7 @@ export class PricingUpdateComponent {
     const file = input.files[0];
     this.fileInfo = `${file.name} (${formatBytes(file.size)})`;
   }
+
+
+
 }

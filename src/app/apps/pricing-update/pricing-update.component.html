@@ -1,31 +1,21 @@
-<!-- ============================================================== -->
-<!-- Card Grid-->
-<!-- ============================================================== -->
 <div fxLayout="row wrap">
   <div fxFlex.gt-sm="100" fxFlex="100">
     <mat-card>
       <mat-card-content>
         <mat-card-title>Atualização de pricing</mat-card-title>
-        <!-- ============================================================== -->
-        <!-- column -->
-        <!-- ============================================================== -->
         <form class="basic-form" [formGroup]="options">
           <div fxLayout="row wrap">
-            <!-- column -->
-            <div fxFlex.gt-md="100" fxFlex="100" style="text-align: right">
+            <div class="p-10" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100" style="text-align: right">
               <mat-slide-toggle formControlName="isChecked">Agendar atualização?</mat-slide-toggle>
             </div>
-            <!-- column -->
-            <div fxFlex.gt-sm="20" fxFlex="100" *ngIf="isChecked">
-              <mat-form-field>
+            <div class="p-10" fxFlex.gt-sm="35" fxFlex.gt-xs="35" fxFlex="100" *ngIf="isChecked">
+              <mat-form-field appearance="outline">
                 <mat-label>Dia da atualização</mat-label>
                 <input matInput [matDatepicker]="picker"/>
-
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
             </div>
-            <!-- column -->
             <div fxFlex.gt-sm="100" fxFlex="100" class="m-b-20">
               <label for="actual-btn">Selecionar Ficheiro</label>
               <input type="file" hidden id="actual-btn" #fileInput (change)="onFileSelect(fileInput)"/>
@@ -37,7 +27,6 @@
     </mat-card>
     <mat-card>
       <mat-card-content>
-        <!-- column -->
         <div fxFlex.gt-sm="100" fxFlex="100">
           <mat-horizontal-stepper [linear]="true">
             <mat-step>
@@ -51,59 +40,7 @@
                         Geral
                       </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <div fxLayout="row wrap">
-
-                      <div class="p-10" fxFlex.gt-sm="10" fxFlex.gt-xs="10" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="ID"/>
-                          <mat-label>ID</mat-label>
-                        </mat-form-field>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="Group ID"/>
-                          <mat-label>Group ID</mat-label>
-                        </mat-form-field>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="30" fxFlex.gt-xs="30" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <mat-select placeholder="Produto Pai">
-                            <mat-option *ngFor="let product of products" [value]="product.value">
-                              {{ product.viewValue }}
-                            </mat-option>
-                          </mat-select>
-                          <mat-label>Produto Pai</mat-label>
-                        </mat-form-field>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="40" fxFlex.gt-xs="40" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="Descrição"/>
-                          <mat-label>Descrição</mat-label>
-                        </mat-form-field>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder=""/>
-                          <textarea matInput placeholder="Descrição Exemplo"></textarea>
-                          <mat-label>Descrição Exemplo</mat-label>
-                        </mat-form-field>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="10" fxFlex.gt-xs="10" fxFlex="100">
-                        <mat-slide-toggle>Visivel</mat-slide-toggle>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="Ordem"/>
-                          <mat-label>Ordem</mat-label>
-                        </mat-form-field>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="Seguimento"/>
-                          <mat-label>Seguimento</mat-label>
-                        </mat-form-field>
-                      </div>
-                    </div>
+                    <app-pricing-general></app-pricing-general>
                   </mat-expansion-panel>
                   <br>
                   <mat-expansion-panel>
@@ -112,57 +49,7 @@
                         Parametrização
                       </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <div fxLayout="row wrap">
-
-                      <div class="p-10" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="Montante Minímo"/>
-                          <mat-label>Montante Minímo</mat-label>
-                        </mat-form-field>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="Montante Máximo"/>
-                          <mat-label>Montante Máximo</mat-label>
-                        </mat-form-field>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="Montante Intervalo"/>
-                          <mat-label>Montante Intervalo</mat-label>
-                        </mat-form-field>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="Montante Inicial"/>
-                          <mat-label>Montante Inicial</mat-label>
-                        </mat-form-field>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="Prazo Minímo"/>
-                          <mat-label>Prazo Minímo</mat-label>
-                        </mat-form-field>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="Prazo Máximo"/>
-                          <mat-label>Prazo Máximo</mat-label>
-                        </mat-form-field>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="Prazo Intervalo"/>
-                          <mat-label>Prazo Intervalo</mat-label>
-                        </mat-form-field>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="Prazo Inicial"/>
-                          <mat-label>Prazo Inicial</mat-label>
-                        </mat-form-field>
-                      </div>
-                    </div>
+                    <app-pricing-parameterization></app-pricing-parameterization>
                   </mat-expansion-panel>
                   <br>
                   <mat-expansion-panel>
@@ -171,30 +58,7 @@
                         Outros
                       </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <div fxLayout="row wrap">
-
-                      <div class="p-10" fxFlex.gt-sm="25" fxFlex.gt-xs="25" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="Tipo de Bem"/>
-                          <mat-label>Tipo de Bem</mat-label>
-                        </mat-form-field>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="25" fxFlex.gt-xs="25" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="Seguro"/>
-                          <mat-label>Seguro</mat-label>
-                        </mat-form-field>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="Dealer"/>
-                          <mat-label>Vendedor</mat-label>
-                        </mat-form-field>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="30" fxFlex.gt-xs="30" fxFlex="100">
-                        <mat-slide-toggle>Tem Valor Prestação Consolidar</mat-slide-toggle>
-                      </div>
-                    </div>
+                    <app-pricing-others></app-pricing-others>
                   </mat-expansion-panel>
                   <br>
                   <mat-expansion-panel>
@@ -203,39 +67,7 @@
                         Comissões e Impostos
                       </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <div fxLayout="row wrap">
-
-                      <div class="p-10" fxFlex.gt-sm="15" fxFlex.gt-xs="15" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="CPP"/>
-                          <mat-label>CPP</mat-label>
-                        </mat-form-field>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="30" fxFlex.gt-xs="30" fxFlex="100">
-                        <mat-slide-toggle>Imposto de Selo Retido</mat-slide-toggle>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="25" fxFlex.gt-xs="25" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="Imposto Selo"/>
-                          <mat-label>Imposto Selo</mat-label>
-                        </mat-form-field>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="30" fxFlex.gt-xs="30" fxFlex="100">
-                        <mat-slide-toggle>Comissão de Abertura Retida</mat-slide-toggle>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="Comissão de Abertura"/>
-                          <mat-label>Comissão de Abertura</mat-label>
-                        </mat-form-field>
-                      </div>
-                      <div class="p-10" fxFlex.gt-sm="30" fxFlex.gt-xs="30" fxFlex="100">
-                        <mat-form-field appearance="outline">
-                          <input matInput placeholder="Comissão de Abertura Extra"/>
-                          <mat-label>Comissão de Abertura Extra</mat-label>
-                        </mat-form-field>
-                      </div>
-                    </div>
+                    <app-pricing-commissions-and-taxes></app-pricing-commissions-and-taxes>
                   </mat-expansion-panel>
                   <br>
                   <mat-expansion-panel>
@@ -244,9 +76,7 @@
                         Prazos
                       </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <div fxLayout="row wrap">
-                      <span>Prazos List</span>
-                    </div>
+                    <app-pricing-deadlines></app-pricing-deadlines>
                   </mat-expansion-panel>
                 </mat-accordion>
               </form>
@@ -257,6 +87,56 @@
             </mat-step>
             <mat-step>
               <ng-template matStepLabel>Crédito Pessoal Promocional</ng-template>
+              <form [formGroup]="firstFormGroup">
+                <mat-accordion class="example-headers-align" multi>
+                  <br>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Geral
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <app-pricing-general></app-pricing-general>
+                  </mat-expansion-panel>
+                  <br>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Parametrização
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <app-pricing-parameterization></app-pricing-parameterization>
+                  </mat-expansion-panel>
+                  <br>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Outros
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <app-pricing-others></app-pricing-others>
+                  </mat-expansion-panel>
+                  <br>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Comissões e Impostos
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <app-pricing-commissions-and-taxes></app-pricing-commissions-and-taxes>
+                  </mat-expansion-panel>
+                  <br>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Prazos
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <app-pricing-deadlines></app-pricing-deadlines>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </form>
+              <br><br>
               <div>
                 <button mat-raised-button color="accent" matStepperPrevious>Voltar</button>
                 <button mat-raised-button color="warn" class="m-l-5" matStepperNext>Próximo</button>
@@ -264,14 +144,62 @@
             </mat-step>
             <mat-step>
               <ng-template matStepLabel>Crédito Auto</ng-template>
+              <form [formGroup]="firstFormGroup">
+                <mat-accordion class="example-headers-align" multi>
+                  <br>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Geral
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <app-pricing-general></app-pricing-general>
+                  </mat-expansion-panel>
+                  <br>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Parametrização
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <app-pricing-parameterization></app-pricing-parameterization>
+                  </mat-expansion-panel>
+                  <br>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Outros
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <app-pricing-others></app-pricing-others>
+                  </mat-expansion-panel>
+                  <br>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Comissões e Impostos
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <app-pricing-commissions-and-taxes></app-pricing-commissions-and-taxes>
+                  </mat-expansion-panel>
+                  <br>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Prazos
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <app-pricing-deadlines></app-pricing-deadlines>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </form>
+              <br><br>
               <div>
                 <button mat-raised-button color="accent" matStepperPrevious>Voltar</button>
               </div>
             </mat-step>
           </mat-horizontal-stepper>
         </div>
-        <!-- column -->
       </mat-card-content>
     </mat-card>
-  </div>
-</div>
+  </div></div>
