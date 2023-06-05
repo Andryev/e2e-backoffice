@@ -1,54 +1,61 @@
-<div fxLayout="row wrap" >
-  <form class="basic-form">
-  <div class="p-10" fxFlex.gt-sm="10" fxFlex.gt-xs="10" fxFlex="100">
-    <mat-form-field appearance="outline">
-      <input matInput placeholder="ID"  />
-      <mat-label>ID</mat-label>
-    </mat-form-field>
-  </div>
-  <div class="p-10" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex="100">
-    <mat-form-field appearance="outline">
-      <input matInput placeholder="Group ID"/>
-      <mat-label>Group ID</mat-label>
-    </mat-form-field>
-  </div>
-  <div class="p-10" fxFlex.gt-sm="30" fxFlex.gt-xs="30" fxFlex="100">
-    <mat-form-field appearance="outline">
-      <mat-select placeholder="Produto Pai">
-        <mat-option *ngFor="let product of products" [value]="product.value">
-          {{ product.viewValue }}
-        </mat-option>
-      </mat-select>
-      <mat-label>Produto Pai</mat-label>
-    </mat-form-field>
-  </div>
-  <div class="p-10" fxFlex.gt-sm="40" fxFlex.gt-xs="40" fxFlex="100">
-    <mat-form-field appearance="outline">
-      <input matInput placeholder="Descrição"/>
-      <mat-label>Descrição</mat-label>
-    </mat-form-field>
-  </div>
-  <div class="p-10" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
-    <mat-form-field appearance="outline">
-      <input matInput placeholder=""/>
-      <textarea matInput placeholder="Descrição Exemplo"></textarea>
-      <mat-label>Descrição Exemplo</mat-label>
-    </mat-form-field>
-  </div>
-  <div class="p-10" fxFlex.gt-sm="10" fxFlex.gt-xs="10" fxFlex="100">
-    <mat-slide-toggle>Visivel</mat-slide-toggle>
-  </div>
-  <div class="p-10" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex="100">
-    <mat-form-field appearance="outline">
-      <input matInput placeholder="Ordem"/>
-      <mat-label>Ordem</mat-label>
-    </mat-form-field>
-  </div>
-  <div class="p-10" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex="100">
-    <mat-form-field appearance="outline">
-      <input matInput placeholder="Seguimento"/>
-      <mat-label>Seguimento</mat-label>
-    </mat-form-field>
-  </div>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Geral
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div fxLayout="row wrap">
+    <form class="basic-form">
+      <div class="p-10" fxFlex.gt-sm="10" fxFlex.gt-xs="10" fxFlex="100">
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="ID"/>
+          <mat-label>ID</mat-label>
+        </mat-form-field>
+      </div>
+      <div class="p-10" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex="100">
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Group ID"/>
+          <mat-label>Group ID</mat-label>
+        </mat-form-field>
+      </div>
+      <div class="p-10" fxFlex.gt-sm="30" fxFlex.gt-xs="30" fxFlex="100">
+        <mat-form-field appearance="outline">
+          <mat-select placeholder="Produto Pai">
+            <mat-option *ngFor="let product of products" [value]="product.value">
+              {{ product.viewValue }}
+            </mat-option>
+          </mat-select>
+          <mat-label>Produto Pai</mat-label>
+        </mat-form-field>
+      </div>
+      <div class="p-10" fxFlex.gt-sm="40" fxFlex.gt-xs="40" fxFlex="100">
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Descrição"/>
+          <mat-label>Descrição</mat-label>
+        </mat-form-field>
+      </div>
+      <div class="p-10" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+        <mat-form-field appearance="outline">
+          <input matInput placeholder=""/>
+          <textarea matInput placeholder="Descrição Exemplo"></textarea>
+          <mat-label>Descrição Exemplo</mat-label>
+        </mat-form-field>
+      </div>
+      <div class="p-10" fxFlex.gt-sm="10" fxFlex.gt-xs="10" fxFlex="100">
+        <mat-slide-toggle>Visivel</mat-slide-toggle>
+      </div>
+      <div class="p-10" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex="100">
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Ordem"/>
+          <mat-label>Ordem</mat-label>
+        </mat-form-field>
+      </div>
+      <div class="p-10" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex="100">
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Seguimento"/>
+          <mat-label>Seguimento</mat-label>
+        </mat-form-field>
+      </div>
     </form>
-</div>
+  </div>
+</mat-expansion-panel>
