@@ -31,7 +31,7 @@
           <mat-horizontal-stepper [linear]="true">
             <mat-step>
               <ng-template matStepLabel>Produtos Lar</ng-template>
-              <form [formGroup]="firstFormGroup">
+              <form [formGroup]="step1">
                 <mat-accordion class="example-headers-align" multi>
                   <br>
                   <mat-expansion-panel>
@@ -87,7 +87,7 @@
             </mat-step>
             <mat-step>
               <ng-template matStepLabel>Crédito Pessoal Promocional</ng-template>
-              <form [formGroup]="firstFormGroup">
+              <form [formGroup]="step2">
                 <mat-accordion class="example-headers-align" multi>
                   <br>
                   <mat-expansion-panel>
@@ -144,7 +144,7 @@
             </mat-step>
             <mat-step>
               <ng-template matStepLabel>Crédito Auto</ng-template>
-              <form [formGroup]="firstFormGroup">
+              <form [formGroup]="step3">
                 <mat-accordion class="example-headers-align" multi>
                   <br>
                   <mat-expansion-panel>

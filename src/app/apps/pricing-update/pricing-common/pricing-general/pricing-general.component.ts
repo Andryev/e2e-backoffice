@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-pricing-general',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PricingGeneralComponent implements OnInit {
 
+  // @ts-ignore
+  // @Input() formGeneral: FormGroup;
   products: any[] = [
     {value: 'steak-0', viewValue: 'Crédito 1'},
     {value: 'pizza-1', viewValue: 'Crédito 2'},
