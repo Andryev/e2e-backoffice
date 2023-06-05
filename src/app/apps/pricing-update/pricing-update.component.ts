@@ -59,7 +59,7 @@ export class PricingUpdateComponent implements OnInit {
         name: ['', Validators.required]
       }),
       commissions: this.formBuilder.group({
-        name: ['', Validators.required]
+        cpp: ['1576', Validators.required]
       }),
       deadlines: this.formBuilder.group({
         name: ['', Validators.required]
@@ -76,7 +76,7 @@ export class PricingUpdateComponent implements OnInit {
         name: ['', Validators.required]
       }),
       commissions: this.formBuilder.group({
-        name: ['', Validators.required]
+        cpp: ['1876', Validators.required]
       }),
       deadlines: this.formBuilder.group({
         name: ['', Validators.required]
@@ -94,7 +94,7 @@ export class PricingUpdateComponent implements OnInit {
         name: ['', Validators.required]
       }),
       commissions: this.formBuilder.group({
-        name: ['', Validators.required]
+        cpp: ['6578', Validators.required]
       }),
       deadlines: this.formBuilder.group({
         name: ['', Validators.required]
@@ -106,6 +106,9 @@ export class PricingUpdateComponent implements OnInit {
     return this.options.controls.isChecked.value;
   }
 
+  onBlur(){
+    console.log(this.step1.controls['commissions'].value);
+  }
   public onFileSelect(input: HTMLInputElement): void {
     function formatBytes(bytes: number): string {
       const UNITS = ['Bytes', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];

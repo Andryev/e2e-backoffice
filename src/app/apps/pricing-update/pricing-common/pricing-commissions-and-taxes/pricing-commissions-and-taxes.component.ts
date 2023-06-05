@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-pricing-commissions-and-taxes',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PricingCommissionsAndTaxesComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  formPricingCommissions: FormGroup | undefined;
+
+  @Output() onBlurEvent = new EventEmitter();
+
+  constructor(private formBuilder: FormBuilder) { 
+    this.formPricingCommissions =this.formBuilder.group({
+      cpp: ['', Validators.required]
+    })
+  }
 
   ngOnInit(): void {
+  }
+
+  onBlur(){
+    console.log('PricingCommmissionAndTaxesComponents => ' + this.formPricingCommissions?.controls['name'].value)
+    this.onBlurEvent.emit(this.formPricingCommissions?.controls['name'].value);
   }
 
 }

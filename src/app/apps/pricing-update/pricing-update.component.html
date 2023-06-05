@@ -60,7 +60,7 @@
                         Comissões e Impostos
                       </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <app-pricing-commissions-and-taxes></app-pricing-commissions-and-taxes>
+                    <app-pricing-commissions-and-taxes [formPricingCommissions]="step1.controls['commissions']" (onBlurEvent)="onBlur()"></app-pricing-commissions-and-taxes>
                   </mat-expansion-panel>
                   <br>
                   <mat-expansion-panel>
@@ -109,7 +109,7 @@
                         Comissões e Impostos
                       </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <app-pricing-commissions-and-taxes></app-pricing-commissions-and-taxes>
+                    <app-pricing-commissions-and-taxes [formPricingCommissions]="step2.controls['commissions']" (onBlurEvent)="onBlur()"></app-pricing-commissions-and-taxes>
                   </mat-expansion-panel>
                   <br>
                   <mat-expansion-panel>
@@ -159,7 +159,7 @@
                         Comissões e Impostos
                       </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <app-pricing-commissions-and-taxes></app-pricing-commissions-and-taxes>
+                    <app-pricing-commissions-and-taxes [formPricingCommissions]="step3.controls['commissions']" (onBlurEvent)="onBlur()"></app-pricing-commissions-and-taxes>
                   </mat-expansion-panel>
                   <br>
                   <mat-expansion-panel>
