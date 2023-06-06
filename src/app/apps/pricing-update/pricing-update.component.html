@@ -8,18 +8,27 @@
             <div class="p-10" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100" style="text-align: right">
               <mat-slide-toggle formControlName="isChecked">Agendar atualização?</mat-slide-toggle>
             </div>
-            <div class="p-10" fxFlex.gt-sm="35" fxFlex.gt-xs="35" fxFlex="100" *ngIf="isChecked">
+            <div class="p-10" fxFlex.gt-sm="25" fxFlex.gt-xs="25" fxFlex="100" *ngIf="isChecked">
               <mat-form-field appearance="outline">
                 <mat-label>Dia da atualização</mat-label>
                 <input matInput [matDatepicker]="picker"/>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
             </div>
-            <div fxFlex.gt-sm="100" fxFlex="100" class="m-b-20">
+            <div class="p-10" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100" style="text-align: right">
+              <mat-divider></mat-divider>
+            </div>            
+          </div>
+          <br/>
+          <div fxLayout="row wrap">  
+            <div fxFlex.gt-sm="80" fxFlex="80">
               <label for="actual-btn">Selecionar Ficheiro</label>
               <input type="file" hidden id="actual-btn" #fileInput (change)="onFileSelect(fileInput)"/>
               <span class="file-info">{{ fileInfo }}</span>
+            </div>
+            <div fxFlex.gt-sm="20" fxFlex="20" style="text-align: right;">
+              <button mat-raised-button class="request_button">Atualizar Pricing</button>
             </div>
           </div>
         </form>
@@ -75,7 +84,7 @@
               </form>
               <br><br>
               <div>
-                <button mat-raised-button color="warn" matStepperNext>Próximo</button>
+                <button mat-raised-button class="next_button" matStepperNext>Próximo</button>
               </div>
             </mat-step>
             <mat-step>
@@ -124,8 +133,8 @@
               </form>
               <br><br>
               <div>
-                <button mat-raised-button color="accent" matStepperPrevious>Voltar</button>
-                <button mat-raised-button color="warn" class="m-l-5" matStepperNext>Próximo</button>
+                <button mat-raised-button color="basic" matStepperPrevious>Voltar</button>
+                <button mat-raised-button style="margin-left: 10px;" class="next_button" matStepperNext>Próximo</button>
               </div>
             </mat-step>
             <mat-step>
@@ -174,7 +183,7 @@
               </form>
               <br><br>
               <div>
-                <button mat-raised-button color="accent" matStepperPrevious>Voltar</button>
+                <button mat-raised-button color="basic" matStepperPrevious>Voltar</button>
               </div>
             </mat-step>
           </mat-horizontal-stepper>

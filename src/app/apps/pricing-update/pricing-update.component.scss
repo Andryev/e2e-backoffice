@@ -9,11 +9,27 @@
 }
 
 label {
-  background-color: #26c6da;
+  background-color: #1AAEB7;
   color: white;
-  padding: 0.6rem;
+  padding: 0.8rem;
   font-family: sans-serif;
   border-radius: 0.3rem;
   cursor: pointer;
-  margin-top: 2rem;
+}
+
+.request_button {
+  text-align: center;
+  text-size-adjust: auto;
+  color: #fff;
+  padding: 0.3rem;
+  background-color: #f0b323;
+  width: 100%;
+  margin-top: -12px;
+}
+
+.next_button {
+  text-align: center;
+  text-size-adjust: auto;
+  color: #fff;
+  background-color: #1AAEB7;  
 }

@@ -1,23 +1,11 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_FORMATS} from '@angular/material-moment-adapter';
-import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
-import {Food} from '../../forms/select/select.component';
-import {MatTableDataSource} from '@angular/material/table';
-import {SelectionModel} from '@angular/cdk/collections';
-
+import {DateAdapter, MAT_DATE_LOCALE} from '@angular/material/core';
 
 @Component({
   selector: 'app-pricing-update',
   templateUrl: './pricing-update.component.html',
   styleUrls: ['./pricing-update.component.scss'],
-  providers: [{provide: MAT_DATE_LOCALE, useValue: 'pt-pt'},
-    {
-      provide: DateAdapter,
-      useClass: MomentDateAdapter,
-      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
-    },
-    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS}]
 })
 export class PricingUpdateComponent implements OnInit {
 
@@ -29,9 +17,7 @@ export class PricingUpdateComponent implements OnInit {
   step3: FormGroup = Object.create(null);
 
   constructor(private formBuilder: FormBuilder,
-              // tslint:disable-next-line:variable-name
               @Inject(MAT_DATE_LOCALE) private _locale: string,
-              // tslint:disable-next-line:variable-name
               private _adapter: DateAdapter<any>) {
     this.options = formBuilder.group({
       hideRequired: false,
