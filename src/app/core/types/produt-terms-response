@@ -1,0 +1,51 @@
+export type ProductTermsResponse = ProductAndTerms[];
+
+export interface ProductAndTerms {
+  product: Product
+  product_terms: ProductTerm[]
+}
+
+export interface Product {
+  created_at: string
+  updated_at: string
+  version: number
+  id: number
+  internal_id: string
+  name: string
+  legal_info: string
+  product_type: string
+  min_term: number
+  max_term: number
+  leap_term: number
+  start_term: number
+  min_money: number
+  max_money: number
+  leap_money: number
+  start_money: number
+  unique_id: string
+  description: string
+  goods_type: number
+  assurance: string
+  has_opening_commission_retained: boolean
+  opening_commission: number
+  extra_opening_commission: number
+  has_stamp_tax_retained: boolean
+  stamp_tax: number
+  cpp: number
+  dealer: string
+  vendor: string
+  has_consolidate_installment_value: boolean
+  is_visible: boolean
+  product_order: number
+  parent_unique_id?: string
+}
+
+export interface ProductTerm {
+  version: number
+  unique_id: string
+  term_month: number
+  coefficient: number
+  tan: number
+  code: string
+  stamp_tax: number
+}
